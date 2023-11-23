@@ -1,4 +1,6 @@
-FROM httpd
-COPY index.html /usr/local/apache2/htdocs/
-EXPOSE 8090
-# CMD [ "httpd-foreground" ]
+FROM python
+WORKDIR /src
+COPY server.py .
+RUN pip3 install flask
+EXPOSE 9000
+CMD python3 server.py

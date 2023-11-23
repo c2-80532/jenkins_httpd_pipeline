@@ -14,12 +14,12 @@ pipeline {
         }
         stage ('docker build image') {
             steps {
-                sh '/usr/bin/docker build -t shubhamchau/flask:1.0 .'
+                sh '/usr/bin/docker build -t shubhamchau/myhttpdweb:1.9 .'
             }
         }
         stage ('docker push image') {
             steps {
-                sh '/usr/bin/docker image push shubhamchau/flask:1.0'
+                sh '/usr/bin/docker image push shubhamchau/myhttpdweb:1.9'
             }
         }
         stage ('docker remove service') {
@@ -29,9 +29,8 @@ pipeline {
         }
         stage ('docker create service') {
             steps {
-                sh '/usr/bin/docker service create --name myflask -p 9000:80 --replicas 5  shubhamchau/flask:1.0'
+                sh '/usr/bin/docker service create --name mybuildsrv -p 9090:80 --replicas 5  shubhamchau/myhttpdweb:1.9'
             }
         }
-i    }
+    }
 }
-
