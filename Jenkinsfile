@@ -32,6 +32,6 @@ pipeline {
                 sh '/usr/bin/docker service create --name myflask -p 9000:80 --replicas 5  shubhamchau/flask:1.0'
             }
         }
-i    }
+    }
 }
 
