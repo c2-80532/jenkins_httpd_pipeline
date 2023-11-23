@@ -29,7 +29,7 @@ pipeline {
         }
         stage ('docker create service') {
             steps {
-                sh '/usr/bin/docker service create --name myflask -p 9000:80 --replicas 5  shubhamchau/flask:1.0'
+                sh '/usr/bin/docker service create --name myflask -p 9000:9000 --replicas 5  shubhamchau/flask:1.0'
             }
         }
     }
